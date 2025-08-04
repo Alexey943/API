@@ -1,0 +1,23 @@
+import requests
+
+# Базовый URL
+base_url = "https://nspd.gov.ru"
+
+# 1. POST-запрос к /api/portal-tools/v1/audit
+# 2. GET-запрос к /api/registers-manager/v2/pop-up?code=technical_work
+# 3. GET-запрос к /api/portal-tools/v1/page-assistant/mainPageNSPD
+
+
+# 2. GET-запрос к /api/registers-manager/v2/pop-up?code=technical_work
+popup_url = f"{base_url}/api/registers-manager/v2/pop-up"
+params = {'code': 'technical_work'}
+try:
+    response_popup = requests.get(popup_url, params=params)
+    response_popup.raise_for_status()
+    popup_data = response_popup.json()
+    print("Данные pop-up API:")
+    print(popup_data)
+except requests.RequestException as e:
+    print(f"Ошибка при обращении к pop-up API: {e}")
+except ValueError:
+    print("Ответ не является JSON.")
