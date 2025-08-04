@@ -1,6 +1,5 @@
 import requests
 
-# Базовый URL
 base_url = "https://nspd.gov.ru"
 
 # 1. POST-запрос к /api/portal-tools/v1/audit
