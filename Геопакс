@@ -11,7 +11,7 @@ base_url = "https://nspd.gov.ru"
 popup_url = f"{base_url}/api/registers-manager/v2/pop-up"
 params = {'code': 'technical_work'}
 try:
-    response_popup = requests.get(popup_url, params=params)
+    response_popup = requests.get(popup_url, params=params, verify=False)
     response_popup.raise_for_status()
     popup_data = response_popup.json()
     print("Данные pop-up API:")
